@@ -21,19 +21,6 @@ import logging
 pytube_logger = logging.getLogger('pytube')
 pytube_logger.setLevel(logging.ERROR)
 
-
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-
-app = FastAPI()
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["POST", "OPTIONS", "GET"],
-    allow_headers=["*"],
-)
-
 def get_throttling_function_name(js: str) -> str:
     """Extract the name of the function that computes the throttling parameter.
 
@@ -383,7 +370,4 @@ with gr.Blocks(title = "SpotifyMp3Downloader") as demo:
 
     submitButton.click(fn = gradio_app, inputs = [playlistUrl, version], outputs = [output])
 
-app = gr.mount_gradio_app(app, demo, path = '/')
-
-if __name__ == '__main__':
-    app.run()
+demo.launch(debug = True)
