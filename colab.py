@@ -3,7 +3,6 @@ from pytube import YouTube, Search, cipher
 from moviepy.editor import VideoFileClip
 import gradio as gr
 import subprocess
-
 import zipfile
 import json
 import requests
@@ -21,6 +20,19 @@ nest_asyncio.apply()
 import logging
 pytube_logger = logging.getLogger('pytube')
 pytube_logger.setLevel(logging.ERROR)
+
+
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["POST", "OPTIONS", "GET"],
+    allow_headers=["*"],
+)
 
 def get_throttling_function_name(js: str) -> str:
     """Extract the name of the function that computes the throttling parameter.
@@ -191,18 +203,23 @@ def extract_track_details(data):
   return track_details
 
 def queryFunc(query, slowFlag):
-    res = Search(query).results
-    searchRes = [
-        {
-            "title": itm.title,
-            "length": itm.length,
-            "url": itm.watch_url,
-            "views": itm.views,
-            "author": itm.author,
-            "embed_code": f'''<iframe src="{itm.embed_url}"></iframe>'''
-        }
-        for itm in res
-    ]
+    res = Search(query).results    
+    try:
+        searchRes = [
+            {
+                "title": itm.title,
+                "length": itm.length,
+                "url": itm.watch_url,
+                "views": itm.views,
+                "author": itm.author,
+                "embed_code": f'''<iframe src="{itm.embed_url}"></iframe>'''
+            }
+            for itm in res
+        ]
+    except Exception as e:
+        print("error in search")
+        raise gr.Error("Error occured in pytube")
+
     slowRegex = re.compile(r'\bslowed\b', re.IGNORECASE)
     mashupRegex = re.compile(r'\sx\s', re.IGNORECASE)
     longVerRegex = re.compile(r'\bhour\b', re.IGNORECASE)
@@ -366,4 +383,7 @@ with gr.Blocks(title = "SpotifyMp3Downloader") as demo:
 
     submitButton.click(fn = gradio_app, inputs = [playlistUrl, version], outputs = [output])
 
-demo.launch(debug = True)
+app = gr.mount_gradio_app(app, demo, path = '/')
+
+if __name__ == '__main__':
+    app.run()
