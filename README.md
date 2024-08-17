@@ -15,14 +15,21 @@
 ### How to Run:
 ----
 only gud thing bout this,
-1. spin up collab, install all the requirements.txt dependencies
-  `pip install -r requirements.txt`
-or `! pip install {packagename}` one by one.
-2. copy colab.py
-3. shit+enter
+1. spin up collab notebook, change runtime to T4, install all the dependencies with
+  `pip install -r requirements.txt` copy paste
+or
+```
+!pip --q install pytube
+!pip --q install aiohttp
+!pip --q install nest-asyncio
+!pip --q install moviepy
+!pip --q install gradio
+```
+2. copy colab.py script
+3. shit + enter
 4. get the gradio interface, enter PLAYLIST URL.
 
-Takes 2-4 mins to generate zips for: [SamplePlaylist](https://open.spotify.com/playlist/4HC6d7aRLc34knclyf1aXx?si=abc3b81457be4523)
+Takes 2-3 mins to generate both zips for: [SamplePlaylist](https://open.spotify.com/playlist/4HC6d7aRLc34knclyf1aXx?si=abc3b81457be4523)
 
 Note: to run locally install ffmpeg and set enviornment variable to the path.
 
