@@ -17,7 +17,7 @@
 only gud thing bout this,
 1. spin up collab, install all the requirements.txt dependencies
   `pip install -r requirements.txt`
-2. copy run.py
+2. copy colab.py
 3. shit+enter
 4. get the gradio interface, enter PLAYLIST URL.
 
