@@ -1,0 +1,8 @@
+pytube
+aiohttp
+nest-asyncio
+moviepy
+gradio
+fastapi
+uvicorn
+beautifulsoup4
