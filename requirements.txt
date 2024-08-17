@@ -6,3 +6,4 @@ gradio
 fastapi
 uvicorn
 beautifulsoup4
+ffmpeg
