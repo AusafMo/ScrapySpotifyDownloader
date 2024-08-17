@@ -18,8 +18,8 @@
 ----
 only gud thing bout this,
 1. spin up collab notebook, change runtime to T4, install all the dependencies with
-  `pip install -r requirements.txt` copy paste
-or
+  `pip install -r requirements.txt`  or 
+copy paste
 ```
 !pip --q install pytube
 !pip --q install aiohttp
