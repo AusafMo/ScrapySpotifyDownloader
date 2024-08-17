@@ -205,17 +205,24 @@ def extract_track_details(data):
 
 def queryFunc(query, slowFlag):
     res = Search(query).results
-    searchRes = [
-        {
-            "title": itm.title,
-            "length": itm.length,
-            "url": itm.watch_url,
-            "views": itm.views,
-            "author": itm.author,
-            "embed_code": f'''<iframe src="{itm.embed_url}"></iframe>'''
-        }
-        for itm in res
-    ]
+    print(res)
+    
+    try:
+        searchRes = [
+            {
+                "title": itm.title,
+                "length": itm.length,
+                "url": itm.watch_url,
+                "views": itm.views,
+                "author": itm.author,
+                "embed_code": f'''<iframe src="{itm.embed_url}"></iframe>'''
+            }
+            for itm in res
+        ]
+    except Exception as e:
+        print("error in search")
+        raise gr.Error("Error occured in pytube")
+
     slowRegex = re.compile(r'\bslowed\b', re.IGNORECASE)
     mashupRegex = re.compile(r'\sx\s', re.IGNORECASE)
     longVerRegex = re.compile(r'\bhour\b', re.IGNORECASE)
