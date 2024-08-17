@@ -24,3 +24,5 @@ only gud thing bout this,
 Takes 3-5 mins to generate zips for: [SamplePlaylist](https://open.spotify.com/playlist/4HC6d7aRLc34knclyf1aXx?si=abc3b81457be4523)
 
 Note: to run locally install ffmpeg and set enviornment variable to the path.
+
+This is purely a work of boredom, no misuse or any type of infringement on any works intended nor implied.
