@@ -1,3 +1,5 @@
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/1d3e62e3-622b-4b35-a52b-ea1720719fa7">
+
 ### Basic Flow
 ---
   1. get Playlist metadata after going through cookie, token stuff.
