@@ -36,3 +36,5 @@ Takes 2-3 mins to generate both zips for: [SamplePlaylist](https://open.spotify.
 Note: to run locally install ffmpeg and set enviornment variable to the path.
 
 This is purely a work of boredom, no misuse or any type of infringement on any works intended nor implied.
+----
+#### Apparently can't host it on render due to PyTube lib, (as far as i can tell, they are blocking PyTube lib requests), and I am NOT using railway.
