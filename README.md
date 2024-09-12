@@ -28,7 +28,7 @@ copy paste
 !pip --q install gradio
 ```
 2. copy colab.py script
-3. shit + enter
+3. shift + enter
 4. get the gradio interface, enter PLAYLIST URL.
 
 Takes 2-3 mins to generate both zips for: [SamplePlaylist](https://open.spotify.com/playlist/4HC6d7aRLc34knclyf1aXx?si=abc3b81457be4523)
