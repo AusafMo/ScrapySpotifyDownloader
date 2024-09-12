@@ -1,6 +1,6 @@
 <img width="700" alt="image" src="https://github.com/user-attachments/assets/1d3e62e3-622b-4b35-a52b-ea1720719fa7">
 
-### Basic Flow
+### Basic Flow of Code
 ---
   1. get Playlist metadata after going through cookie, token stuff.
   2. hit pytube with search.
